@@ -169,3 +169,22 @@ sp1-prover = "5.0.5"
 log = { version = "0.4" }
 hex = "0.4"
 url = { version = "2.5.4" }
+
+[patch."https://github.com/op-rs/kona"]
+kona-client = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-host   = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-derive   = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-driver   = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-genesis  = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-protocol = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-registry = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-rpc      = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-providers-alloy = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-executor      = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-mpt           = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-preimage      = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-proof         = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-std-fpvm      = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-std-fpvm-proc = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-cli   = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
+kona-serde = { git = "https://github.com/celo-org/kona", rev = "bafc266", default-features = false }
