@@ -8,10 +8,7 @@ use kona_derive::PipelineErrorKind;
 use alloc::{boxed::Box, fmt::Debug};
 use alloy_primitives::{Address, Bytes};
 use async_trait::async_trait;
-use kona_derive::{
-    BlobProvider, ChainProvider, DataAvailabilityProvider, EthereumDataSource, PipelineError,
-    PipelineResult,
-};
+use kona_derive::{DataAvailabilityProvider, PipelineError, PipelineResult};
 use kona_protocol::BlockInfo;
 use tracing::{error, warn};
 
@@ -19,15 +16,18 @@ use tracing::{error, warn};
 /// data is fetched from eigenda or stays as it is if Eth calldata is desired. Those data
 /// are cached. When next() is called it just returns the next cached encoded payload.
 /// Otherwise, EOF is sent if iterator is empty
+///
+/// The ethereum_source field is generic over any [`DataAvailabilityProvider`] yielding [`Bytes`], so
+/// callers can supply kona's `EthereumDataSource` or a wrapper such as celo-kona's
+/// `CeloEthereumDataSource` (which adds Espresso event-based batch authentication).
 #[derive(Debug, Clone)]
-pub struct EigenDADataSource<C, B, A>
+pub struct EigenDADataSource<D, A>
 where
-    C: ChainProvider + Send + Clone,
-    B: BlobProvider + Send + Clone,
+    D: DataAvailabilityProvider<Item = Bytes> + Send + Clone,
     A: EigenDAPreimageProvider + Send + Clone,
 {
-    /// The ethereum source.
-    pub ethereum_source: EthereumDataSource<C, B>,
+    /// The L1 ethereum source.
+    pub ethereum_source: D,
     /// The eigenda preimage source.
     pub eigenda_source: EigenDAPreimageSource<A>,
     /// altda commitment, if we step in by calling next and it is Some, it means previous
@@ -35,17 +35,13 @@ where
     pub altda_commitment: Option<AltDACommitment>,
 }
 
-impl<C, B, A> EigenDADataSource<C, B, A>
+impl<D, A> EigenDADataSource<D, A>
 where
-    C: ChainProvider + Send + Clone + Debug,
-    B: BlobProvider + Send + Clone + Debug,
+    D: DataAvailabilityProvider<Item = Bytes> + Send + Clone + Debug,
     A: EigenDAPreimageProvider + Send + Clone + Debug,
 {
     /// Instantiates a new [EigenDADataSource].
-    pub const fn new(
-        ethereum_source: EthereumDataSource<C, B>,
-        eigenda_source: EigenDAPreimageSource<A>,
-    ) -> Self {
+    pub const fn new(ethereum_source: D, eigenda_source: EigenDAPreimageSource<A>) -> Self {
         Self {
             ethereum_source,
             eigenda_source,
@@ -55,10 +51,9 @@ where
 }
 
 #[async_trait]
-impl<C, B, A> DataAvailabilityProvider for EigenDADataSource<C, B, A>
+impl<D, A> DataAvailabilityProvider for EigenDADataSource<D, A>
 where
-    C: ChainProvider + Send + Sync + Clone + Debug,
-    B: BlobProvider + Send + Sync + Clone + Debug,
+    D: DataAvailabilityProvider<Item = Bytes> + Send + Sync + Clone + Debug,
     A: EigenDAPreimageProvider + Send + Sync + Clone + Debug,
 {
     type Item = Bytes;
@@ -182,8 +177,11 @@ mod tests {
     use alloy_rlp::Decodable;
     use eigenda_cert::AltDACommitment;
     use kona_derive::test_utils::{TestBlobProvider, TestChainProvider};
-    use kona_derive::{BlobSource, CalldataSource};
+    use kona_derive::{BlobSource, CalldataSource, EthereumDataSource};
     use kona_genesis::{HardForkConfig, RollupConfig};
+
+    /// Concrete L1 source type used throughout these tests.
+    type TestEthereumDataSource = EthereumDataSource<TestChainProvider, TestBlobProvider>;
 
     const L1_INBOX_ADDRESS: Address =
         alloy_primitives::address!("0x000faef0a3d9711c3e9bbc4f3e2730dd75167da3");
@@ -294,7 +292,7 @@ mod tests {
     }
 
     fn default_test_eigenda_data_source(
-    ) -> EigenDADataSource<TestChainProvider, TestBlobProvider, TestEigenDAPreimageProvider> {
+    ) -> EigenDADataSource<TestEthereumDataSource, TestEigenDAPreimageProvider> {
         let chain = TestChainProvider::default();
         let blob = default_test_blob_source();
 
@@ -322,11 +320,7 @@ mod tests {
     }
 
     fn configure_chain_provider_with_txs(
-        source: &mut EigenDADataSource<
-            TestChainProvider,
-            TestBlobProvider,
-            TestEigenDAPreimageProvider,
-        >,
+        source: &mut EigenDADataSource<TestEthereumDataSource, TestEigenDAPreimageProvider>,
         num: usize,
         block_info: &BlockInfo,
     ) -> (Vec<TxEnvelope>, Vec<AltDACommitment>, Vec<EncodedPayload>) {
@@ -344,11 +338,7 @@ mod tests {
     }
 
     fn set_eigenda_preimage_provider_value(
-        source: &mut EigenDADataSource<
-            TestChainProvider,
-            TestBlobProvider,
-            TestEigenDAPreimageProvider,
-        >,
+        source: &mut EigenDADataSource<TestEthereumDataSource, TestEigenDAPreimageProvider>,
         altda_commitments: Vec<AltDACommitment>,
         validities: Vec<Result<bool, TestHokuleaProviderError>>,
         encoded_payloads: Vec<Result<EncodedPayload, TestHokuleaProviderError>>,
