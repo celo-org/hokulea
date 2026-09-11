@@ -311,7 +311,7 @@ dependencies = [
 [[package]]
 name = "alloy-op-evm"
 version = "0.32.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -328,7 +328,7 @@ dependencies = [
 [[package]]
 name = "alloy-op-hardforks"
 version = "0.5.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-chains",
  "alloy-hardforks",
@@ -3654,7 +3654,7 @@ dependencies = [
 [[package]]
 name = "kona-cli"
 version = "0.3.2"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-chains",
  "alloy-primitives",
@@ -3674,7 +3674,7 @@ dependencies = [
 [[package]]
 name = "kona-client"
 version = "1.0.2"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -3713,7 +3713,7 @@ dependencies = [
 [[package]]
 name = "kona-derive"
 version = "0.4.5"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -3737,7 +3737,7 @@ dependencies = [
 [[package]]
 name = "kona-driver"
 version = "0.4.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-consensus",
  "alloy-evm",
@@ -3757,7 +3757,7 @@ dependencies = [
 [[package]]
 name = "kona-executor"
 version = "0.4.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -3781,7 +3781,7 @@ dependencies = [
 [[package]]
 name = "kona-genesis"
 version = "0.4.5"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-chains",
  "alloy-consensus",
@@ -3800,7 +3800,7 @@ dependencies = [
 [[package]]
 name = "kona-hardforks"
 version = "0.4.5"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-eips",
  "alloy-primitives",
@@ -3815,7 +3815,7 @@ dependencies = [
 [[package]]
 name = "kona-host"
 version = "1.0.2"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -3864,7 +3864,7 @@ dependencies = [
 [[package]]
 name = "kona-interop"
 version = "0.4.5"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -3875,7 +3875,6 @@ dependencies = [
  "async-trait",
  "derive_more",
  "kona-genesis",
- "kona-protocol",
  "kona-registry",
  "op-alloy-consensus",
  "serde",
@@ -3886,12 +3885,12 @@ dependencies = [
 [[package]]
 name = "kona-macros"
 version = "0.1.2"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 
 [[package]]
 name = "kona-mpt"
 version = "0.3.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-primitives",
  "alloy-rlp",
@@ -3903,7 +3902,7 @@ dependencies = [
 [[package]]
 name = "kona-preimage"
 version = "0.3.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-primitives",
  "async-channel",
@@ -3917,7 +3916,7 @@ dependencies = [
 [[package]]
 name = "kona-proof"
 version = "0.3.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -3954,7 +3953,7 @@ dependencies = [
 [[package]]
 name = "kona-proof-interop"
 version = "0.2.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -3986,7 +3985,7 @@ dependencies = [
 [[package]]
 name = "kona-protocol"
 version = "0.4.5"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloc-no-stdlib",
  "alloy-consensus",
@@ -4019,7 +4018,7 @@ dependencies = [
 [[package]]
 name = "kona-providers-alloy"
 version = "0.3.3"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -4053,7 +4052,7 @@ dependencies = [
 [[package]]
 name = "kona-providers-local"
 version = "0.1.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -4071,7 +4070,7 @@ dependencies = [
 [[package]]
 name = "kona-registry"
 version = "0.4.5"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-chains",
  "alloy-eips",
@@ -4090,7 +4089,7 @@ dependencies = [
 [[package]]
 name = "kona-std-fpvm"
 version = "0.2.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "async-trait",
  "buddy_system_allocator",
@@ -4102,7 +4101,7 @@ dependencies = [
 [[package]]
 name = "kona-std-fpvm-proc"
 version = "0.2.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "cfg-if",
  "kona-std-fpvm",
@@ -4633,7 +4632,7 @@ checksum = "384b8ab6d37215f3c5301a95a4accb5d64aa607f1fcb26a11b5303878451b4fe"
 [[package]]
 name = "op-alloy"
 version = "2.0.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "op-alloy-consensus",
  "op-alloy-network",
@@ -4645,7 +4644,7 @@ dependencies = [
 [[package]]
 name = "op-alloy-consensus"
 version = "2.0.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -4666,7 +4665,7 @@ dependencies = [
 [[package]]
 name = "op-alloy-network"
 version = "2.0.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-consensus",
  "alloy-network",
@@ -4679,7 +4678,7 @@ dependencies = [
 [[package]]
 name = "op-alloy-provider"
 version = "2.0.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-network",
  "alloy-primitives",
@@ -4693,7 +4692,7 @@ dependencies = [
 [[package]]
 name = "op-alloy-rpc-types"
 version = "2.0.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -4713,7 +4712,7 @@ dependencies = [
 [[package]]
 name = "op-alloy-rpc-types-engine"
 version = "2.0.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -4732,7 +4731,7 @@ dependencies = [
 [[package]]
 name = "op-revm"
 version = "20.0.0"
-source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0-rc.1#e982ee6a1404bf9221f1f145957830820e9579bd"
+source = "git+https://github.com/ethereum-optimism/optimism?tag=kona-client%2Fv1.7.0#64b043ea5bbca9bc6e57e0f1c8df0404b4cf5f68"
 dependencies = [
  "alloy-eips",
  "auto_impl",
