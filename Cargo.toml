@@ -28,18 +28,18 @@ codegen-units = 1
 lto = "fat"
 
 [workspace.dependencies]
-kona-client = { git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13", default-features = false }
-kona-host = { git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13", default-features = false }
-kona-derive = { version = "0.4.5", git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13", default-features = false }
-kona-driver = { version = "0.4.0", git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13", default-features = false }
-kona-executor = { version = "0.4.0", git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13", default-features = false }
-kona-preimage = { version = "0.3.0", git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13", default-features = false }
-kona-proof = { version = "0.3.0", git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13", default-features = false }
-kona-std-fpvm = { version = "0.2.0", git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13", default-features = false }
-kona-std-fpvm-proc = { version = "0.2.0", git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13", default-features = false }
-kona-genesis = { version = "0.4.5", git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13", default-features = false }
-kona-protocol = { version = "0.4.5", git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13", default-features = false }
-kona-cli = { version = "0.3.2", git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13", default-features = false }
+kona-client = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd", default-features = false }
+kona-host = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd", default-features = false }
+kona-derive = { version = "0.4.5", git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd", default-features = false }
+kona-driver = { version = "0.4.0", git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd", default-features = false }
+kona-executor = { version = "0.4.0", git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd", default-features = false }
+kona-preimage = { version = "0.3.0", git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd", default-features = false }
+kona-proof = { version = "0.3.0", git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd", default-features = false }
+kona-std-fpvm = { version = "0.2.0", git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd", default-features = false }
+kona-std-fpvm-proc = { version = "0.2.0", git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd", default-features = false }
+kona-genesis = { version = "0.4.5", git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd", default-features = false }
+kona-protocol = { version = "0.4.5", git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd", default-features = false }
+kona-cli = { version = "0.3.2", git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd", default-features = false }
 
 # Workspace
 hokulea-host-bin = { path = "bin/host", version = "0.1.0", default-features = false }
@@ -150,11 +150,89 @@ hex = "0.4"
 url = { version = "2.5.4" }
 
 [patch.crates-io]
-op-alloy-consensus = { git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13" }
-op-alloy-network = { git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13" }
-op-alloy-rpc-types = { git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13" }
-op-alloy-rpc-types-engine = { git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13" }
-op-alloy-provider = { git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13" }
-alloy-op-evm = { git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13" }
-alloy-op-hardforks = { git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13" }
-op-alloy = { git = "https://github.com/ethereum-optimism/optimism", tag = "kona-client/v1.2.13" }
+
+# Patch op-alloy and alloy-op-evm to use the optimism monorepo versions
+# Required because kona v1.2.14 uses path deps from the monorepo, and hokulea's
+# own [patch] section doesn't propagate when used as a git dependency.
+op-alloy-consensus = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+op-alloy-network = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+op-alloy-rpc-types = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+op-alloy-rpc-types-engine = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+op-alloy-provider = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+alloy-op-evm = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+alloy-op-hardforks = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+op-alloy = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+
+# Alloy 1.6.3 backport for Amsterdam L1 headers. This checkout also retains
+# Celo's fake_exponential overflow fix. Keep shared Alloy crates on one source.
+alloy-consensus-any = { git = "https://github.com/celo-org/alloy", rev = "3b2599be2ee43bb1d648c95fb3c31c9d94a52a34" }
+alloy-network-primitives = { git = "https://github.com/celo-org/alloy", rev = "3b2599be2ee43bb1d648c95fb3c31c9d94a52a34" }
+alloy-rpc-types-eth = { git = "https://github.com/celo-org/alloy", rev = "3b2599be2ee43bb1d648c95fb3c31c9d94a52a34" }
+alloy-rpc-types-engine = { git = "https://github.com/celo-org/alloy", rev = "3b2599be2ee43bb1d648c95fb3c31c9d94a52a34" }
+alloy-consensus = { git = "https://github.com/celo-org/alloy", rev = "3b2599be2ee43bb1d648c95fb3c31c9d94a52a34" }
+alloy-eips = { git = "https://github.com/celo-org/alloy", rev = "3b2599be2ee43bb1d648c95fb3c31c9d94a52a34" }
+alloy-serde = { git = "https://github.com/celo-org/alloy", rev = "3b2599be2ee43bb1d648c95fb3c31c9d94a52a34" }
+alloy-tx-macros = { git = "https://github.com/celo-org/alloy", rev = "3b2599be2ee43bb1d648c95fb3c31c9d94a52a34" }
+
+# TODO: remove these patches when bumping kona past https://github.com/ethereum-optimism/optimism/commit/f1930fa
+[patch."https://github.com/ethereum-optimism/optimism"]
+kona-mpt = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+kona-derive = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+kona-driver = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+kona-preimage = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+kona-executor = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+kona-proof = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+kona-client = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+kona-host = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+kona-providers-alloy = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+kona-protocol = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+kona-registry = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+kona-genesis = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+kona-cli = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+kona-std-fpvm = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+kona-std-fpvm-proc = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+op-alloy-consensus = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+op-alloy-network = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+op-alloy-rpc-types = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+op-alloy-rpc-types-engine = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+op-alloy-provider = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+alloy-op-evm = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+alloy-op-hardforks = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+op-alloy = { git = "https://github.com/celo-org/optimism", rev = "23e76f204630099efa0378d6152773c5ea094efd" }
+
+
+
+[patch."https://github.com/paradigmxyz/reth"]
+reth-chainspec = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-codecs = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-codecs-derive = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-consensus = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-consensus-common = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-db-models = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-errors = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-ethereum-consensus = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-ethereum-forks = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-ethereum-primitives = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-evm = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-evm-ethereum = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-execution-errors = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-execution-types = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-network-peers = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-primitives = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-primitives-traits = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-prune-types = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-stages-types = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-static-file-types = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-storage-api = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-storage-errors = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-trie = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-trie-common = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-trie-sparse = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+reth-zstd-compressors = { git = "https://github.com/celo-org/reth", rev = "038532e0aee2be42662e15e04ea57422076b213c" }
+
+[patch."https://github.com/succinctlabs/rsp"]
+rsp-client-executor = { git = "https://github.com/celo-org/rsp", rev = "583d54fdbcfbb8e131dacf91a2264e25a57bc241" }
+rsp-mpt = { git = "https://github.com/celo-org/rsp", rev = "583d54fdbcfbb8e131dacf91a2264e25a57bc241" }
+rsp-primitives = { git = "https://github.com/celo-org/rsp", rev = "583d54fdbcfbb8e131dacf91a2264e25a57bc241" }
+rsp-rpc-db = { git = "https://github.com/celo-org/rsp", rev = "583d54fdbcfbb8e131dacf91a2264e25a57bc241" }
+rsp-witness-db = { git = "https://github.com/celo-org/rsp", rev = "583d54fdbcfbb8e131dacf91a2264e25a57bc241" }

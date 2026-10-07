@@ -16,26 +16,11 @@ use sp1_cc_client_executor::ChainConfig;
 
 use tracing::info;
 
-/// Any change to sp1-cc client including new sp1 toolchain produces a new ELF to be executed and proved by zkVM
-/// To generate the new ELF (a newer version than 6.0.1 toolchain tag is also fine)
-/// ``` bash
-/// cd canoe/sp1-cc/client
-/// cargo prove build --output-directory ../elf --elf-name canoe-sp1-cc-client --docker --tag v6.0.1
-/// ```
-///
-/// The verificaiton of the ELF must be hardcoded here which pins an exact version of ELF a prover can use
-/// Sp1 toolchain currently does not provide a way to generate such key. It has been raised to the sp1 team.
-/// Currently, one can run the preloader example under `example/preloader` and run
-/// ``` bash
-/// just run-preloader .devnet.env sp1-cc
-/// ```
-/// or
-/// ```bash
-/// just get-sp1cc-elf-and-vkey
-/// ```
-/// The v_key will be printed in the terminal.
+/// Verification key of the embedded Canoe ELF, built with SP1 6.1.0.
+/// Rebuild with `just get-sp1cc-elf-and-vkey v6.1.0` and update this key together
+/// with `canoe/sp1-cc/elf/canoe-sp1-cc-client`.
 pub const V_KEY: [u32; 8] = [
-    1581641303, 211813286, 723351455, 1255568814, 1309175369, 387631189, 1976740964, 566471778,
+    1140889454, 1981704311, 2071680256, 1049257205, 1797897510, 106345230, 1867950941, 341352307,
 ];
 
 #[derive(Clone, Default)]

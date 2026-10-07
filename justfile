@@ -389,12 +389,12 @@ run-client env_file run_env_file native_or_asterisc='native' verbosity='':
 
 ############################### Utils ###############################
 [group('utils')]
-get-sp1cc-elf-and-vkey sp1_tag='v6.0.1':
+get-sp1cc-elf-and-vkey sp1_tag='v6.1.0':
   #!/usr/bin/env bash
   set -euo pipefail
   pushd canoe/sp1-cc/client/
-      cargo prove build --output-directory ../elf --elf-name canoe-sp1-cc-client --docker --tag {{sp1_tag}}
+      cargo prove build --output-directory ../elf --elf-name canoe-sp1-cc-client --docker --locked --tag {{sp1_tag}}
   popd
   echo "Finished building elf with sp1 {{sp1_tag}}"
-  cargo run --bin canoe-sp1-cc-vkey-bin --release -- canoe/sp1-cc/elf/canoe-sp1-cc-client
+  SP1_PROVER=cpu cargo run --locked --bin canoe-sp1-cc-vkey-bin --release -- canoe/sp1-cc/elf/canoe-sp1-cc-client
   echo "This vKey must match the V_KEY variable inside canoe/sp1-cc/verifier/src/lib.rs"
